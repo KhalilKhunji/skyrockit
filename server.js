@@ -8,6 +8,7 @@ const session = require('express-session');
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const applicationsController = require('./controllers/applications.js');
+const path = require('path');
 
 const authController = require('./controllers/auth.js');
 
@@ -31,6 +32,9 @@ app.use(
 );
 
 app.use(passUserToView);
+
+//Link to public directory
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/', (req, res) => {
   if (req.session.user) {
