@@ -12,7 +12,7 @@
     <p>Notes: <%= application.notes %></p>
   <% } %>
   <% if (application.postingLink) { %>
-    <a href="<%= application.postingLink %>">View job posting</a>
+    <a href="/<%= application.postingLink %>">View job posting</a>
   <% } %>
   <p>Current Status: <%= application.status %></p>
   <a href="/users/<%= user._id %>/applications/<%= application._id %>/edit">
